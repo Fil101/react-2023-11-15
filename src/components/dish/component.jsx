@@ -1,3 +1,5 @@
+import {DishCounter} from "../dish-counter/component.jsx";
+
 export const Dish = ({name, price, ingredients}) => {
 
     return (
@@ -8,6 +10,8 @@ export const Dish = ({name, price, ingredients}) => {
             <ul>
                 {ingredients.map((item) => <li key={item}>{item}</li>)}
             </ul>
+            <p>Количество блюд:</p>
+            <DishCounter />
         </li>
     )
 }

@@ -17,6 +17,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/prop-types': 'off',
-    'react/no-children-prop': 'off'
+    'react/no-children-prop': 'off',
+    'no-extra-boolean-cast': 'off'
   },
 }

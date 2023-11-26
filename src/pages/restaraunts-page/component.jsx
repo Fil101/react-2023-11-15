@@ -1,9 +1,9 @@
 import {useState} from "react";
-import {RestaurantNames} from "../../components/restaurant-names/component";
-import {Restaurants} from "../../components/restaurants/component";
+import {RestaurantTabs} from "../../components/restaurant-tabs/component";
+import {Restaurant} from "../../components/restaurant/component.jsx";
 
 export const  RestaurantsPage = ({restaurants}) => {
-    const [selectedRestaurant, setSelectedRestaurants] = useState();
+    const [selectedRestaurantId, setSelectedRestaurantId] = useState();
 
     const restaurantNames = restaurants.map(({name, id}) => {
        if (name && id) {
@@ -12,15 +12,15 @@ export const  RestaurantsPage = ({restaurants}) => {
        return {}
     });
 
-    const filteredRestaurants = restaurants.filter(({name}) => name === selectedRestaurant);
+    const selectedRestaurant = restaurants.find(({id}) => id === selectedRestaurantId);
 
     return (
         <div>
-            <RestaurantNames
-                restaurantNames={restaurantNames}
-                onRestaurantSelect={setSelectedRestaurants}
+            <RestaurantTabs
+                restaurantTabs={restaurantNames}
+                onRestaurantSelect={setSelectedRestaurantId}
             />
-            <Restaurants restaurants={filteredRestaurants}/>
+            <Restaurant restaurant={selectedRestaurant}/>
         </div>
     )
 }

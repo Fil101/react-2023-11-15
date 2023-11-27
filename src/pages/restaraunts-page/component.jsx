@@ -1,7 +1,10 @@
-import {RestaurantNames} from "../../components/restaurant-names/component";
-import {Restaurants} from "../../components/restaurants/component";
+import {useState} from "react";
+import {RestaurantTabs} from "../../components/restaurant-tabs/component";
+import {Restaurant} from "../../components/restaurant/component.jsx";
 
 export const  RestaurantsPage = ({restaurants}) => {
+    const [selectedRestaurantId, setSelectedRestaurantId] = useState();
+
     const restaurantNames = restaurants.map(({name, id}) => {
        if (name && id) {
            return {name, id};
@@ -9,13 +12,15 @@ export const  RestaurantsPage = ({restaurants}) => {
        return {}
     });
 
+    const selectedRestaurant = restaurants.find(({id}) => id === selectedRestaurantId);
+
     return (
         <div>
-            <RestaurantNames
-                restaurantNames={restaurantNames}
-                onRestaurantSelect={(restaurantName) => console.log(restaurantName)}
+            <RestaurantTabs
+                restaurantTabs={restaurantNames}
+                onRestaurantSelect={setSelectedRestaurantId}
             />
-            <Restaurants restaurants={restaurants}/>
+            <Restaurant restaurant={selectedRestaurant}/>
         </div>
     )
 }

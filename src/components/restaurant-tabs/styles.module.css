@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.tab:not(:last-child) {
+   margin-right: 10px;
+}

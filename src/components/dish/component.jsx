@@ -1,6 +1,8 @@
 import {Counter} from "../counter/component.jsx";
 import {useState} from "react";
 
+import styles from "./styles.module.css"
+
 export const Dish = ({name, price, ingredients}) => {
     const [dishCounter, setDishCounter] = useState(0);
 
@@ -17,15 +19,13 @@ export const Dish = ({name, price, ingredients}) => {
     };
 
     return (
-        <li>
+        <li className={styles.root}>
             <strong>Блюдо: {name}:</strong>
             <p>Цена: {price}</p>
-            <p>Состав:</p>
-            <ul>
-                {ingredients.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+            <p>Состав: {ingredients.join(', ')}</p>
             <p>Количество блюд:</p>
             <Counter
+                className={styles.counter}
                 onIncrement={increment}
                 onDecrement={decrement}
                 count={dishCounter}

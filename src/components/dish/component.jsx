@@ -1,9 +1,10 @@
 import {Counter} from "../counter/component.jsx";
 import {useState} from "react";
+import classNames from "classnames";
 
 import styles from "./styles.module.css"
 
-export const Dish = ({name, price, ingredients}) => {
+export const Dish = ({name, price, ingredients, className}) => {
     const [dishCounter, setDishCounter] = useState(0);
 
     const increment = () => {
@@ -19,7 +20,7 @@ export const Dish = ({name, price, ingredients}) => {
     };
 
     return (
-        <li className={styles.root}>
+        <li className={classNames(styles.root, className)}>
             <strong>Блюдо: {name}:</strong>
             <p>Цена: {price}</p>
             <p>Состав: {ingredients.join(', ')}</p>

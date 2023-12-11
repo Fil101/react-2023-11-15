@@ -14,6 +14,7 @@ export const Menu = ({menu}) => {
                         name={name}
                         price={price}
                         ingredients={ingredients}
+                        className={styles.dish}
                     />
                 ))}
             </ul>

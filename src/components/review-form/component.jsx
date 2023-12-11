@@ -1,5 +1,6 @@
 import {useReducer} from "react";
 import {Counter} from "../counter/component";
+import classNames from "classnames";
 
 import styles from "./styles.module.css"
 
@@ -21,7 +22,7 @@ const reducer = (state, action) => {
             return state;
     }
 };
-export const ReviewForm = () => {
+export const ReviewForm = ({className}) => {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
     const onIncrementRating = () => {
@@ -37,7 +38,7 @@ export const ReviewForm = () => {
     }
 
     return (
-        <div className={styles.root}>
+        <div className={classNames(styles.root, className)}>
             <h3>Оставить отзыв</h3>
             <div>
                 <label className={styles.formLabel} htmlFor="name">Имя</label>

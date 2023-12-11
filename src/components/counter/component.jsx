@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import {Button} from "../button/component";
 
 import styles from "./styles.module.css"
 
@@ -6,9 +7,9 @@ export const Counter = ({onIncrement, onDecrement, count, className}) => {
 
     return (
         <div className={classNames(styles.root, className)}>
-            <button className={styles.counterButton} onClick={onDecrement}>&#10134;</button>
+            <Button onClick={onDecrement}>-</Button>
             <div>{count}</div>
-            <button className={styles.counterButton} onClick={onIncrement}>&#10133;</button>
+            <Button onClick={onIncrement}>+</Button>
         </div>
     )
 }

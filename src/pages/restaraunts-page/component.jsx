@@ -1,6 +1,9 @@
 import {useState} from "react";
 import {RestaurantTabs} from "../../components/restaurant-tabs/component";
 import {Restaurant} from "../../components/restaurant/component.jsx";
+import {Layout} from "../../components/layout/component.jsx";
+
+import styles from "./styles.module.css"
 
 export const  RestaurantsPage = ({restaurants}) => {
     const [selectedRestaurantId, setSelectedRestaurantId] = useState();
@@ -15,12 +18,17 @@ export const  RestaurantsPage = ({restaurants}) => {
     const selectedRestaurant = restaurants.find(({id}) => id === selectedRestaurantId);
 
     return (
-        <div>
+        <Layout>
             <RestaurantTabs
                 restaurantTabs={restaurantNames}
                 onRestaurantSelect={setSelectedRestaurantId}
+                selectedRestaurantId={selectedRestaurantId}
+                className={styles.restaurantTabs}
             />
-            <Restaurant restaurant={selectedRestaurant}/>
-        </div>
+            <Restaurant
+                restaurant={selectedRestaurant}
+                className={styles.restaurant}
+            />
+        </Layout>
     )
 }

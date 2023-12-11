@@ -1,0 +1,10 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.review {
+    margin: 10px;
+}

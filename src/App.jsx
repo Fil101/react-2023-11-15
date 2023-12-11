@@ -1,10 +1,10 @@
 import {RestaurantsPage} from "./pages/restaraunts-page/component";
 
+import "./styles/index.css"
+
 export const App = ({ restaurants }) => {
 
     return (
-        <div>
-            <RestaurantsPage restaurants={restaurants} />
-        </div>
+        <RestaurantsPage restaurants={restaurants}/>
     )
 }

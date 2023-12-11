@@ -1,5 +1,8 @@
 import {useReducer} from "react";
 import {Counter} from "../counter/component";
+import classNames from "classnames";
+
+import styles from "./styles.module.css"
 
 const DEFAULT_FORM_VALUE = {
     name: "",
@@ -19,7 +22,7 @@ const reducer = (state, action) => {
             return state;
     }
 };
-export const ReviewForm = () => {
+export const ReviewForm = ({className}) => {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
     const onIncrementRating = () => {
@@ -35,11 +38,12 @@ export const ReviewForm = () => {
     }
 
     return (
-        <div>
+        <div className={classNames(styles.root, className)}>
             <h3>Оставить отзыв</h3>
             <div>
-                <label htmlFor="name">Имя</label>
+                <label className={styles.formLabel} htmlFor="name">Имя</label>
                 <input
+                    className={styles.formInput}
                     id="name"
                     value={formValue.name}
                     onChange={(event) => {
@@ -48,8 +52,9 @@ export const ReviewForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor="text">Отзыв</label>
+                <label className={styles.formLabel} htmlFor="text">Отзыв</label>
                 <input
+                    className={styles.formInput}
                     id="text"
                     value={formValue.text}
                     onChange={(event) => {
@@ -58,14 +63,13 @@ export const ReviewForm = () => {
                 />
             </div>
             <div>
-                <label>Рейтинг</label>
+                <label className={styles.formLabel}>Рейтинг</label>
                 <Counter
                     count={formValue.rating}
                     onDecrement={onDecrementRating}
                     onIncrement={onIncrementRating}
                 />
             </div>
-
         </div>
     )
 }

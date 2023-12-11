@@ -1,0 +1,30 @@
+.root {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    transition: box-shadow 0.3s ease;
+}
+
+.root:hover {
+    box-shadow: 0 0 10px 0 #aaa;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.formLabel {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.formInput {
+    width: 90%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
